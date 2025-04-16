@@ -4,6 +4,14 @@ import openai
 import os
 from dotenv import load_dotenv
 
+@app.route("/webhook", methods=["POST"])
+def whatsapp_webhook():
+    print("📥 Mensagem recebida no webhook!")
+    print("🔍 request.values:", request.values)  # <-- Adicionado aqui
+
+    incoming_msg = request.values.get('Body', '').strip()
+
+
 # Carrega variáveis do .env
 load_dotenv()
 print("Chave da OpenAI:", os.getenv("OPENAI_API_KEY"))

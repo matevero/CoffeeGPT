@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 
 
+print("🚀 Iniciando o app do Zé do Café...")
 
 # Carrega variáveis do .env
 load_dotenv()
@@ -24,7 +25,7 @@ app = Flask(__name__)
 
 @app.route("/webhook", methods=["POST"])
 def whatsapp_webhook():
-    print("📥 Mensagem recebida no webhook!")
+    print("⚡ Função whatsapp_webhook() foi chamada!")
     print("🔍 request.values:", request.values)  # <-- Adicionado aqui
 
     incoming_msg = request.values.get('Body', '').strip()

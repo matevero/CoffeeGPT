@@ -4,12 +4,6 @@ import openai
 import os
 from dotenv import load_dotenv
 
-@app.route("/webhook", methods=["POST"])
-def whatsapp_webhook():
-    print("📥 Mensagem recebida no webhook!")
-    print("🔍 request.values:", request.values)  # <-- Adicionado aqui
-
-    incoming_msg = request.values.get('Body', '').strip()
 
 
 # Carrega variáveis do .env
@@ -30,8 +24,11 @@ app = Flask(__name__)
 
 @app.route("/webhook", methods=["POST"])
 def whatsapp_webhook():
-    print("📥 Mensagem recebida no webhook!")  # <-- ESSENCIAL PRA VER SE TÁ CHEGANDO
+    print("📥 Mensagem recebida no webhook!")
+    print("🔍 request.values:", request.values)  # <-- Adicionado aqui
+
     incoming_msg = request.values.get('Body', '').strip()
+
 
     response = MessagingResponse()
     msg = response.message()

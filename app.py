@@ -11,6 +11,12 @@ print("Chave da OpenAI:", os.getenv("OPENAI_API_KEY"))
 # Chave da OpenAI
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+if not openai.api_key:
+    print("🚨 A chave da OpenAI não foi carregada!")
+else:
+    print("🔑 Chave da OpenAI carregada com sucesso!")
+
+
 # Cria o app Flask
 app = Flask(__name__)
 

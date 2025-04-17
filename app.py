@@ -43,6 +43,7 @@ def telegram_webhook():
                 ]
             )
 
+
             reply = chat_completion.choices[0].message.content
             print("🤖 Resposta do Zé:", reply)
 
